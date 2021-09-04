@@ -1,7 +1,7 @@
 package edu.volkov.mortalkombat.web.controller;
 
 import edu.volkov.mortalkombat.service.CrudService;
-import edu.volkov.mortalkombat.to.TournamentTo;
+import edu.volkov.mortalkombat.to.FighterTo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,33 +9,33 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = TournamentControllerAbstract.REST_URL)
-public class TournamentControllerAbstract extends AbstractCrudController<TournamentTo, Integer> {
+@RequestMapping(value = FighterController.REST_URL)
+public class FighterController extends AbstractCrudController<FighterTo, Integer> {
 
-    static final String REST_URL = "/tournaments/";
+    static final String REST_URL = "/fighters/";
 
-    public TournamentControllerAbstract(CrudService<TournamentTo, Integer> service) {
+    public FighterController(CrudService<FighterTo, Integer> service) {
         super(service);
     }
 
     @GetMapping("{id}")
-    public TournamentTo get(@PathVariable int id) {
+    public FighterTo get(@PathVariable int id) {
         return super.get(id);
     }
 
     @GetMapping
-    public List<TournamentTo> getAll() {
+    public List<FighterTo> getAll() {
         return super.getAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<TournamentTo> create(@RequestBody TournamentTo to) {
+    public ResponseEntity<FighterTo> create(@RequestBody FighterTo to) {
         return super.create(to, REST_URL);
     }
 
     @PutMapping("{id}")
-    public void update(@PathVariable Integer id, @RequestBody TournamentTo to) {
+    public void update(@PathVariable Integer id, @RequestBody FighterTo to) {
         super.update(id, to);
     }
 

@@ -11,6 +11,7 @@ public class FinishingOffConverter implements DOConverter<FinishingOffTo, Finish
     public FinishingOffTo asTo(FinishingOff model) {
         FinishingOffTo to = new FinishingOffTo();
         to.setId(model.getId());
+        to.setName(model.getName());
         to.setFinishType(model.getFinishType());
         to.setComplexity(model.getComplexity());
         to.setShowy(model.getShowy());
@@ -25,6 +26,7 @@ public class FinishingOffConverter implements DOConverter<FinishingOffTo, Finish
     @Override
     public FinishingOff updateFromTo(FinishingOff updated, FinishingOffTo to) {
         updated.setId(to.getId());
+        updated.setName(to.getName());
         updated.setFinishType(to.getFinishType());
         updated.setComplexity(to.getComplexity());
         updated.setShowy(to.getShowy());

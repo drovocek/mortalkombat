@@ -15,6 +15,7 @@ public class FighterConverter implements DOConverter<FighterTo, Fighter> {
     public FighterTo asTo(Fighter model) {
         FighterTo to = new FighterTo();
         to.setId(model.getId());
+        to.setName(model.getName());
         to.setFinishingOffsTos(finishingOffConverter.asTos(model.getFinishingOffs()));
         to.setKingdom(model.getKingdom());
         to.setHealth(model.getHealth());
@@ -30,6 +31,7 @@ public class FighterConverter implements DOConverter<FighterTo, Fighter> {
     @Override
     public Fighter updateFromTo(Fighter updated, FighterTo to) {
         updated.setId(to.getId());
+        updated.setName(to.getName());
         updated.setFinishingOffs(finishingOffConverter.asModels(to.getFinishingOffsTos()));
         updated.setKingdom(to.getKingdom());
         updated.setHealth(to.getHealth());

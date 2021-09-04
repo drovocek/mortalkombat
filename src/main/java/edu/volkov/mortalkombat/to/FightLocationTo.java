@@ -8,11 +8,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class LocationTo  extends BaseTo<Integer>  {
+public class FightLocationTo extends BaseTo<Integer> {
 
     private Kingdom kingdom;
 
-    public LocationTo(Integer id) {
-        super(id);
+    public FightLocationTo(Integer id, String name) {
+        super(id, name);
     }
 }

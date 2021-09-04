@@ -11,23 +11,23 @@ import java.util.List;
 @NoArgsConstructor
 public class TournamentTo extends BaseTo<Integer> {
 
-    private List<LocationTo> locationsTos;
+    private List<FightLocationTo> locationsTos;
 
-    private List<FighterTo> defendersOfTheEarthTos;
+    private List<FighterTo> earthrealmFighterTos;
 
-    private List<FighterTo> attackerFromOutsideWorldTos;
+    private List<FighterTo> outworldFighterTos;
 
     private int fightsCount;
 
-    private int defendersWinsCount;
+    private int outworldFightersWinsCount;
 
-    private int attackersWinsCount;
+    private int earthrealmFightersWinsCount;
 
-    private int defendersDeathCount;
+    private int outworldFightersDeathCount;
 
-    private int attackersDeathCount;
+    private int earthrealmFightersDeathCount;
 
-    public TournamentTo(Integer id) {
-        super(id);
+    public TournamentTo(Integer id, String name) {
+        super(id, name);
     }
 }

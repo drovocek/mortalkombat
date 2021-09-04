@@ -37,8 +37,8 @@ public class Fight extends AbstractBaseEntity {
     @ToString.Exclude
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "location_id", referencedColumnName = "id")
-    private Location location;
+    @JoinColumn(name = "fight_location_id", referencedColumnName = "id")
+    private FightLocation fightLocation;
 
     @Column(name = "earthrealm_fighter_won")
     private boolean isEarthrealmFighterWon;

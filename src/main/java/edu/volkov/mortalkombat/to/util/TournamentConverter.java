@@ -16,13 +16,14 @@ public class TournamentConverter implements DOConverter<TournamentTo, Tournament
     public TournamentTo asTo(Tournament model) {
         TournamentTo to = new TournamentTo();
         to.setId(model.getId());
-        to.setLocationsTos(locationConverter.asTos(model.getLocations()));
-        to.setDefendersOfTheEarthTos(fighterConverter.asTos(model.getDefendersOfTheEarth()));
-        to.setAttackerFromOutsideWorldTos(fighterConverter.asTos(model.getAttackerFromOutsideWorld()));
-        to.setAttackersWinsCount(model.getAttackersWinsCount());
-        to.setAttackersDeathCount(model.getAttackersDeathCount());
-        to.setDefendersWinsCount(model.getDefendersWinsCount());
-        to.setDefendersDeathCount(model.getDefendersDeathCount());
+        to.setName(model.getName());
+        to.setLocationsTos(locationConverter.asTos(model.getFightLocations()));
+        to.setEarthrealmFighterTos(fighterConverter.asTos(model.getEarthrealmFighters()));
+        to.setOutworldFighterTos(fighterConverter.asTos(model.getOutworldFighters()));
+        to.setEarthrealmFightersWinsCount(model.getEarthrealmFightersWinsCount());
+        to.setOutworldFightersWinsCount(model.getOutworldFightersWinsCount());
+        to.setEarthrealmFightersDeathCount(model.getEarthrealmFightersDeathCount());
+        to.setOutworldFightersDeathCount(model.getOutworldFightersDeathCount());
         to.setFightsCount(model.getFightsCount());
         return to;
     }
@@ -35,6 +36,7 @@ public class TournamentConverter implements DOConverter<TournamentTo, Tournament
     @Override
     public Tournament updateFromTo(Tournament updated, TournamentTo to) {
         updated.setId(to.getId());
+        updated.setName(to.getName());
         return updated;
     }
 }

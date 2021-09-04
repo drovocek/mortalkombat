@@ -22,40 +22,40 @@ public class Tournament extends AbstractBaseEntity {
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "fc_tournament_location",
-            joinColumns = {@JoinColumn(name = "id_tournament")},
-            inverseJoinColumns = {@JoinColumn(name = "id_location")})
-    private List<Location> locations = new ArrayList<>();
+            joinColumns = {@JoinColumn(name = "tournament_id")},
+            inverseJoinColumns = {@JoinColumn(name = "fight_location_id")})
+    private List<FightLocation> fightLocations = new ArrayList<>();
 
     @ToString.Exclude
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinTable(name = "fc_tournament_defender",
-            joinColumns = {@JoinColumn(name = "id_tournament")},
-            inverseJoinColumns = {@JoinColumn(name = "id_defender")})
-    private List<Fighter> defendersOfTheEarth = new ArrayList<>();
+    @JoinTable(name = "fc_tournament_earthrealm_fighters",
+            joinColumns = {@JoinColumn(name = "tournament_id")},
+            inverseJoinColumns = {@JoinColumn(name = "earthrealm_fighters_id")})
+    private List<Fighter> earthrealmFighters = new ArrayList<>();
 
     @ToString.Exclude
     @NotEmpty
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinTable(name = "fc_tournament_attackers",
-            joinColumns = {@JoinColumn(name = "id_tournament")},
-            inverseJoinColumns = {@JoinColumn(name = "id_attackers")})
-    private List<Fighter> attackerFromOutsideWorld = new ArrayList<>();
+    @JoinTable(name = "fc_tournament_outworld_fighters",
+            joinColumns = {@JoinColumn(name = "tournament_id")},
+            inverseJoinColumns = {@JoinColumn(name = "outworld_fighters_id")})
+    private List<Fighter> outworldFighters = new ArrayList<>();
 
-    @Column(name = "fights_count")
+    @Transient
     private int fightsCount;
 
-    @Column(name = "defenders_wins_count")
-    private int defendersWinsCount;
+    @Transient
+    private int outworldFightersWinsCount;
 
-    @Column(name = "attackers_wins_count")
-    private int attackersWinsCount;
+    @Transient
+    private int earthrealmFightersWinsCount;
 
-    @Column(name = "defenders_death_count")
-    private int defendersDeathCount;
+    @Transient
+    private int outworldFightersDeathCount;
 
-    @Column(name = "attackers_death_count")
-    private int attackersDeathCount;
+    @Transient
+    private int earthrealmFightersDeathCount;
 
     public Tournament(Integer id, String name) {
         super(id, name);

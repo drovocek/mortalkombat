@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class FinishingOffTo  extends BaseTo<Integer>  {
+public class FinishingOffTo extends BaseTo<Integer> {
 
     private FinishType finishType;
 
@@ -16,7 +16,7 @@ public class FinishingOffTo  extends BaseTo<Integer>  {
 
     private int complexity;
 
-    public FinishingOffTo(Integer id) {
-        super(id);
+    public FinishingOffTo(Integer id, String name) {
+        super(id, name);
     }
 }

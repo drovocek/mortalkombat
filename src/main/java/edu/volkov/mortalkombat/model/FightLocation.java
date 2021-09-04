@@ -13,15 +13,15 @@ import javax.validation.constraints.NotNull;
 @ToString(exclude = "")
 @NoArgsConstructor
 @Entity
-@Table(name = "location")
-public class Location extends AbstractBaseEntity {
+@Table(name = "fight_location")
+public class FightLocation extends AbstractBaseEntity {
 
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "kingdom")
     private Kingdom kingdom;
 
-    public Location(Integer id, String name) {
+    public FightLocation(Integer id, String name) {
         super(id, name);
     }
 }

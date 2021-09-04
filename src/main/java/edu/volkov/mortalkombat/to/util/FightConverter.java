@@ -16,6 +16,7 @@ public class FightConverter implements DOConverter<FightTo, Fight> {
     public FightTo asTo(Fight model) {
         FightTo to = new FightTo();
         to.setId(model.getId());
+        to.setName(model.getName());
         to.setEarthrealmFighterTo(fighterConverter.asTo(model.getEarthrealmFighter()));
         to.setOutworldFighterTo(fighterConverter.asTo(model.getOutworldFighter()));
         to.setTournamentId(model.getTournament().getId());
@@ -33,6 +34,7 @@ public class FightConverter implements DOConverter<FightTo, Fight> {
     @Override
     public Fight updateFromTo(Fight updated, FightTo to) {
         updated.setId(to.getId());
+        updated.setName(to.getName());
         updated.setEarthrealmFighter(fighterConverter.asModel(to.getEarthrealmFighterTo()));
         updated.setOutworldFighter(fighterConverter.asModel(to.getOutworldFighterTo()));
         updated.setEarthrealmFighterWon(to.isEarthrealmFighterWon());

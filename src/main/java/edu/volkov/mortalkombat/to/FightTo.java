@@ -15,7 +15,7 @@ public class FightTo extends BaseTo<Integer> {
 
     private FighterTo outworldFighterTo;
 
-    private LocationTo locationTo;
+    private FightLocationTo fightLocationTo;
 
     private boolean isEarthrealmFighterWon;
 
@@ -23,7 +23,7 @@ public class FightTo extends BaseTo<Integer> {
 
     private boolean isSomeoneDied;
 
-    public FightTo(Integer id) {
-        super(id);
+    public FightTo(Integer id, String name) {
+        super(id, name);
     }
 }

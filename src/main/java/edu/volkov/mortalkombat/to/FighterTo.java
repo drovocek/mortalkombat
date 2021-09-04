@@ -20,7 +20,7 @@ public class FighterTo extends BaseTo<Integer> {
 
     private int punchPower;
 
-    public FighterTo(Integer id) {
-        super(id);
+    public FighterTo(Integer id, String name) {
+        super(id, name);
     }
 }

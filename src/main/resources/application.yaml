@@ -22,12 +22,19 @@ spring:
             envers:
               enabled: true
         ddl-auto: validate
-# Flyway
-#spring:
-#  flyway:
-#    enabled=true
-#    locations: classpath:db/migration
-#    baseline-on-migrate: true
+  # Flyway
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+#  jackson:
+#    default-property-inclusion:
+#      - always
+#      - non_null
+#      - non_absent
+#      - non_default
+#      - non_empty
 
 # Log
 logging:
