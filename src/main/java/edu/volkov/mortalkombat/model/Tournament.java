@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -42,19 +43,19 @@ public class Tournament extends AbstractBaseEntity {
             inverseJoinColumns = {@JoinColumn(name = "outworld_fighters_id")})
     private List<Fighter> outworldFighters = new ArrayList<>();
 
-    @Transient
+    @Formula("(SELECT COUNT(*) FROM Fight)")
     private int fightsCount;
 
-    @Transient
+    @Formula("(SELECT COUNT(*) FROM Fight f WHERE f.outworld_fighter_won = true)")
     private int outworldFightersWinsCount;
 
-    @Transient
+    @Formula("(SELECT COUNT(*) FROM Fight f WHERE f.earthrealm_fighter_won = true)")
     private int earthrealmFightersWinsCount;
 
-    @Transient
+    @Formula("(SELECT COUNT(*) FROM Fight f WHERE f.earthrealm_fighter_won = true AND f.someone_died = true)")
     private int outworldFightersDeathCount;
 
-    @Transient
+    @Formula("(SELECT COUNT(*) FROM Fight f WHERE f.outworld_fighter_won = true AND f.someone_died = true)")
     private int earthrealmFightersDeathCount;
 
     public Tournament(Integer id, String name) {
