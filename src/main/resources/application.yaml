@@ -28,14 +28,6 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
 
-#  jackson:
-#    default-property-inclusion:
-#      - always
-#      - non_null
-#      - non_absent
-#      - non_default
-#      - non_empty
-
 # Log
 logging:
   level:

@@ -1,12 +1,3 @@
--- DELETE FROM fight;
--- DELETE FROM fighter;
--- DELETE FROM finishing_off;
--- DELETE
--- FROM fight_location;
--- DELETE FROM tournament;
-
-ALTER SEQUENCE global_seq RESTART WITH 1000;
-
 INSERT INTO fight_location (name, kingdom)
 VALUES ('Kahn''s Arena', 'OUTWORLD'),         -- 1000
        ('Bridge of Immortality', 'OUTWORLD'), -- 1001

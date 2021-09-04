@@ -1,11 +1,3 @@
--- DROP TABLE IF EXISTS fight;
--- DROP TABLE IF EXISTS fighter;
--- DROP TABLE IF EXISTS finishing_off;
--- DROP TABLE IF EXISTS fight_location;
--- DROP TABLE IF EXISTS tournament;
-
--- DROP SEQUENCE IF EXISTS global_seq;
-
 CREATE SEQUENCE global_seq
     START WITH 1000
     INCREMENT BY 1
@@ -56,8 +48,7 @@ CREATE TABLE fight
     fight_location_id      INTEGER                           NOT NULL,
     earthrealm_fighter_won BOOL                DEFAULT FALSE NOT NULL,
     outworld_fighter_won   BOOL                DEFAULT FALSE NOT NULL,
-    someone_died           BOOL                DEFAULT FALSE NOT NULL
-,
+    someone_died           BOOL                DEFAULT FALSE NOT NULL,
     FOREIGN KEY (earthrealm_fighter_id) REFERENCES fighter (id) ON DELETE CASCADE,
     FOREIGN KEY (outworld_fighter_id) REFERENCES fighter (id) ON DELETE CASCADE,
     FOREIGN KEY (tournament_id) REFERENCES tournament (id) ON DELETE CASCADE,
@@ -80,7 +71,7 @@ CREATE TABLE fc_tournament_earthrealm_fighters
 
 CREATE TABLE fc_tournament_outworld_fighters
 (
-    tournament_id          INTEGER NOT NULL,
+    tournament_id        INTEGER NOT NULL,
     outworld_fighters_id INTEGER NOT NULL,
     PRIMARY KEY (tournament_id, outworld_fighters_id)
 );

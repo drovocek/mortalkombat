@@ -1,5 +1,6 @@
 package edu.volkov.mortalkombat.to;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class BaseTo<I> implements Persistable<I>, Serializable {
         return id;
     }
 
+    @JsonIgnore
     @Override
     public boolean isNew() {
         return id == null;
