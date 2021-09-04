@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 @RequiredArgsConstructor
-public abstract class CrudController<T extends BaseTo<I>, I extends Number> {
+public abstract class AbstractCrudController<T extends BaseTo<I>, I extends Number> {
 
     private final CrudService<T, I> service;
 

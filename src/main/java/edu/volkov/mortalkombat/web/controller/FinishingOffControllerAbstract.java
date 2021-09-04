@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = FinishingOffController.REST_URL)
-public class FinishingOffController extends CrudController<FinishingOffTo, Integer> {
+@RequestMapping(value = FinishingOffControllerAbstract.REST_URL)
+public class FinishingOffControllerAbstract extends AbstractCrudController<FinishingOffTo, Integer> {
 
-    static final String REST_URL = "/finishing-off";
+    static final String REST_URL = "/finishing-offs/";
 
-    public FinishingOffController(CrudService<FinishingOffTo, Integer> service) {
+    public FinishingOffControllerAbstract(CrudService<FinishingOffTo, Integer> service) {
         super(service);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public FinishingOffTo get(@PathVariable int id) {
         return super.get(id);
     }
@@ -34,12 +34,12 @@ public class FinishingOffController extends CrudController<FinishingOffTo, Integ
         return super.create(to, REST_URL);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public void update(@PathVariable Integer id, @RequestBody FinishingOffTo to) {
         super.update(id, to);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
         super.delete(id);

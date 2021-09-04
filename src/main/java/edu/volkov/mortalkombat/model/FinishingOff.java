@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,6 +17,11 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "finishing_off")
 public class FinishingOff extends AbstractBaseEntity {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fighter_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Fighter fighter;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "finish_type")
